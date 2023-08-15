@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">IP_Search_App</string>
+    //Название приложения
+    <string name="app_name">IP Следопыт</string>
 </resources>
