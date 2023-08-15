@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -8,11 +9,14 @@ android {
     compileSdk = 33
 
     defaultConfig {
+        val majore = "1"
+        val minore = "0"
+        val path = "0"
         applicationId = "com.example.ip_search_app"
         minSdk = 24
         targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = (majore + minore + path).toInt()
+        versionName = "$majore.$minore.$path"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -43,6 +47,7 @@ dependencies {
     val retrofitVersion = "2.9.0"
     val gsonConverterVersion = "2.6.4"
     val googleMapsVersion = "18.1.0"
+    val daggerHiltVersion = "2.44"
 
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
@@ -61,4 +66,8 @@ dependencies {
     implementation ("com.squareup.retrofit2:converter-gson:$gsonConverterVersion")
     //Google Maps
     implementation ("com.google.android.gms:play-services-maps:$googleMapsVersion")
+    //Dagger-Hilt
+    implementation("com.google.dagger:hilt-android:$daggerHiltVersion")
+    annotationProcessor("com.google.dagger:hilt-android-compiler:$daggerHiltVersion")
 }
+
