@@ -1,4 +1,10 @@
 <resources>
     //Название приложения
     <string name="app_name">IP Следопыт</string>
+    //Заголовки элементов меню навигации
+    <string name="menu_item_search">Поиск</string>
+    <string name="menu_item_history">История</string>
+    <string name="menu_item_more">Ещё</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
