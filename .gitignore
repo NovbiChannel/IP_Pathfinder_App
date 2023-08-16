@@ -14,3 +14,4 @@
 .cxx
 local.properties
 gradle.properties
+/app/src/main/java/com/example/ip_search_app/utils

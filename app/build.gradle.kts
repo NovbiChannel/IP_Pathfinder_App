@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.example.ip_search_app"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         val majore = "1"
@@ -49,6 +49,7 @@ dependencies {
     val gsonConverterVersion = "2.6.4"
     val googleMapsVersion = "18.1.0"
     val daggerHiltVersion = "2.46.1"
+    val navVersion = "2.7.0"
 
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
@@ -63,11 +64,17 @@ dependencies {
     //Retrofit
     implementation ("com.squareup.retrofit2:retrofit:$retrofitVersion")
     implementation ("com.squareup.retrofit2:converter-gson:$gsonConverterVersion")
+    //OKHTTP3
+    implementation("com.squareup.okhttp3:logging-interceptor:4.9.1")
     //Google Maps
     implementation ("com.google.android.gms:play-services-maps:$googleMapsVersion")
     //Dagger-Hilt
     implementation("com.google.dagger:hilt-android:$daggerHiltVersion")
     kapt("com.google.dagger:hilt-compiler:$daggerHiltVersion")
+    //Navigation Component
+    implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
+    implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
+
 }
 // Allow references to generated code
 kapt {
