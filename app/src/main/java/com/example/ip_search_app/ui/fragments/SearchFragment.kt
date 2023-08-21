@@ -14,6 +14,10 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class SearchFragment : Fragment() {
@@ -44,13 +48,16 @@ class SearchFragment : Fragment() {
                     mapFragment.getMapAsync { googleMap ->
                         // Use the updated latitude and longitude values to update the map
                         val latLng = LatLng(lat, lon)
-                        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f))
-                        googleMap.clear()
-                        googleMap.addMarker(
-                            MarkerOptions()
-                                .position(latLng)
-                                .title(ip.data?.ip)
-                        )
+                        CoroutineScope(Dispatchers.Main).launch {
+                            delay(2000L)
+                            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f))
+                            googleMap.clear()
+                            googleMap.addMarker(
+                                MarkerOptions()
+                                    .position(latLng)
+                                    .title(ip.data?.ip)
+                            )
+                        }
                     }
                 }
             }
