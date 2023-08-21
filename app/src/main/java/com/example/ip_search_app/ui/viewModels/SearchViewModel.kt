@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.ip_search_app.data.api.SearchRepository
+import com.example.ip_search_app.models.SearchIpModel
 import com.example.ip_search_app.models.SearchIpResponse
 import com.example.ip_search_app.models.UserIpResponse
 import com.example.ip_search_app.utils.Resource
@@ -15,7 +16,7 @@ import javax.inject.Inject
 class SearchViewModel @Inject constructor(
     private val repository: SearchRepository
 ): ViewModel() {
-    val userIp: MutableLiveData<Resource<UserIpResponse>> = MutableLiveData()
+    private val userIp: MutableLiveData<Resource<UserIpResponse>> = MutableLiveData()
     val ipInfo: MutableLiveData<Resource<SearchIpResponse>> = MutableLiveData()
     val latitude: MutableLiveData<Double> = MutableLiveData()
     val longitude: MutableLiveData<Double> = MutableLiveData()
@@ -44,6 +45,12 @@ class SearchViewModel @Inject constructor(
                     val (lat, lon) = splitStringToFloats(res?.loc ?: "0,0")
                     latitude.postValue(lat)
                     longitude.postValue(lon)
+                    val item = SearchIpModel(ip = res?.ip ?: "", hostname = res?.hostname
+                        ?: "", city = res?.city ?: "", region = res?.region ?: "",
+                        country = res?.country ?: "", loc = res?.loc ?: "", org = res?.org ?: "", postal = res?.postal
+                            ?: "", timezone = res?.timezone ?: ""
+                    )
+                    repository.addToDb(item)
                 }
             }
             else {

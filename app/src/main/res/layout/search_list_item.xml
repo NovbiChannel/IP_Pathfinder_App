@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <ImageView
+        android:id="@+id/iv_screen_map"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:background="@drawable/shape_image_stroke_round"
+        android:layout_margin="16dp"
+        android:src="@drawable/test_screen"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_ip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="77.222.97.13"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/iv_screen_map"
+        app:layout_constraintTop_toTopOf="@id/iv_screen_map"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/iv_flag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_flag_23dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toEndOf="@id/iv_screen_map"
+        app:layout_constraintTop_toBottomOf="@id/tv_ip"
+        app:tint="@color/colorAccent" />
+
+    <TextView
+        android:id="@+id/tv_country_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/list_item_title_country"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toEndOf="@id/iv_flag"
+        app:layout_constraintTop_toTopOf="@id/iv_flag"
+        app:layout_constraintBottom_toBottomOf="@id/iv_flag"/>
+
+    <TextView
+        android:id="@+id/tv_country"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        tools:text="RU"
+        app:layout_constraintStart_toEndOf="@id/tv_country_title"
+        app:layout_constraintTop_toTopOf="@id/tv_country_title"
+        app:layout_constraintBottom_toBottomOf="@id/tv_country_title"/>
+
+    <ImageView
+        android:id="@+id/iv_city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_city_23dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toEndOf="@id/iv_screen_map"
+        app:layout_constraintTop_toBottomOf="@id/iv_flag"
+        app:tint="@color/colorAccent"
+        />
+
+    <TextView
+        android:id="@+id/tv_city_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="@string/list_item_title_city"
+        app:layout_constraintStart_toEndOf="@id/iv_city"
+        app:layout_constraintTop_toTopOf="@id/iv_city"
+        app:layout_constraintBottom_toBottomOf="@id/iv_city"/>
+
+    <TextView
+        android:id="@+id/tv_city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        tools:text="Chelyabinsk"
+        app:layout_constraintStart_toEndOf="@id/tv_city_title"
+        app:layout_constraintTop_toTopOf="@id/tv_city_title"
+        app:layout_constraintBottom_toBottomOf="@id/tv_city_title"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

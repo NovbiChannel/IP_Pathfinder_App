@@ -60,6 +60,7 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     //RoomDB
     implementation ("androidx.room:room-runtime:$roomVersion")
+    implementation ("androidx.room:room-ktx:$roomVersion")
     kapt ("androidx.room:room-compiler:$roomVersion")
     //Retrofit
     implementation ("com.squareup.retrofit2:retrofit:$retrofitVersion")
